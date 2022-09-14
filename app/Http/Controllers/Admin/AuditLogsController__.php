@@ -1,5 +1,5 @@
 <?php
-
+// ini bisa diganti jadi lebih cantik
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;

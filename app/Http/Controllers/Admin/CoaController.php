@@ -57,8 +57,8 @@ class CoaController extends Controller
 
             return $table->make(true);
         }
-
-        return view('admin.coas.index');
+        $breadcrumb = 'COA';
+        return view('admin.coas.index' , compact('breadcrumb'));
     }
 
     public function create()

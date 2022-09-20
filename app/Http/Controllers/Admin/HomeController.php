@@ -11,7 +11,8 @@ class HomeController
 {   
     public function index()
     {
-        return view('home');  
+        $breadcrumb = trans('cruds.dashboard.title') ;
+        return view('admin.dashboard.index', compact('breadcrumb'));  
     }
 
     

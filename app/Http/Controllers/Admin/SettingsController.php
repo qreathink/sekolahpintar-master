@@ -58,14 +58,16 @@ class SettingsController extends Controller
             return $table->make(true);
         }
 
-        return view('admin.settings.index');
+        $breadcrumb = trans('cruds.setting.title_singular') ." ". trans('global.list');
+        return view('admin.settings.index', compact('breadcrumb'));
     }
 
     public function create()
     {
         abort_if(Gate::denies('setting_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.settings.create');
+        $breadcrumb = trans('global.create') . " ".  trans('cruds.setting.title_singular') ;
+        return view('admin.settings.create', compact('breadcrumb'));
     }
 
     public function store(StoreSettingRequest $request)
@@ -81,7 +83,8 @@ class SettingsController extends Controller
 
         $setting->load('created_by');
 
-        return view('admin.settings.edit', compact('setting'));
+        $breadcrumb = trans('global.edit') . " ".  trans('cruds.setting.title_singular') ;
+        return view('admin.settings.edit', compact('setting', 'breadcrumb'));
     }
 
     public function update(UpdateSettingRequest $request, Setting $setting)
@@ -97,7 +100,8 @@ class SettingsController extends Controller
 
         $setting->load('created_by');
 
-        return view('admin.settings.show', compact('setting'));
+        $breadcrumb = trans('global.show') . " ".  trans('cruds.setting.title_singular') ;
+        return view('admin.settings.show', compact('setting', 'breadcrumb'));
     }
 
     public function destroy(Setting $setting)

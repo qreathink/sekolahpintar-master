@@ -14,6 +14,7 @@ use Yajra\DataTables\Facades\DataTables;
 
 class PermissionsController extends Controller
 {
+    
     public function index(Request $request)
     {
         abort_if(Gate::denies('permission_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
@@ -66,14 +67,17 @@ class PermissionsController extends Controller
             return $table->make(true);
         }
         
-        return view('admin.permissions.index');
+        $breadcrumb = trans('cruds.permission.title_singular') ." ". trans('global.list');
+        return view('admin.permissions.index', compact('breadcrumb'));
     }
 
     public function create()
     {
         abort_if(Gate::denies('permission_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         $grpTitle = trans('cruds');
-        return view('admin.permissions.create', compact( 'grpTitle'));
+
+        $breadcrumb = trans('global.create') . " ".  trans('cruds.permission.title_singular') ;
+        return view('admin.permissions.create', compact( 'grpTitle', 'breadcrumb'));
     }
 
     public function store(StorePermissionRequest $request)
@@ -89,7 +93,8 @@ class PermissionsController extends Controller
 
         $grpTitle = trans('cruds');
         
-        return view('admin.permissions.edit', compact('permission', 'grpTitle'));
+        $breadcrumb = trans('global.edit') . " ".  trans('cruds.permission.title_singular') ;
+        return view('admin.permissions.edit', compact('permission', 'grpTitle', 'breadcrumb'));
     }
 
     public function update(UpdatePermissionRequest $request, Permission $permission)
@@ -103,7 +108,8 @@ class PermissionsController extends Controller
     {
         abort_if(Gate::denies('permission_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         $grpTitle = trans('cruds');
-        return view('admin.permissions.show', compact('permission', 'grpTitle'));
+        $breadcrumb = trans('global.show') . " ".  trans('cruds.permission.title_singular') ;
+        return view('admin.permissions.show', compact('permission', 'grpTitle', 'breadcrumb'));
     }
 
     public function destroy(Permission $permission)

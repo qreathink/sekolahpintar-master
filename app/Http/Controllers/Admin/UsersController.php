@@ -65,7 +65,8 @@ class UsersController extends Controller
             return $table->make(true);
         }
 
-        return view('admin.users.index');
+        $breadcrumb = trans('cruds.user.title_singular') ." ". trans('global.list');
+        return view('admin.users.index', compact('breadcrumb'));
     }
 
     public function create()
@@ -74,7 +75,8 @@ class UsersController extends Controller
 
         $roles = Role::pluck('title', 'id');
 
-        return view('admin.users.create', compact('roles'));
+        $breadcrumb = trans('global.create') . " ".  trans('cruds.user.title_singular') ;
+        return view('admin.users.create', compact('roles', 'breadcrumb'));
     }
 
     public function store(StoreUserRequest $request)
@@ -92,8 +94,8 @@ class UsersController extends Controller
         $roles = Role::pluck('title', 'id');
 
         $user->load('roles');
-
-        return view('admin.users.edit', compact('roles', 'user'));
+        $breadcrumb = trans('global.edit') . " ".  trans('cruds.user.title_singular') ;
+        return view('admin.users.edit', compact('roles', 'user', 'breadcrumb'));
     }
 
     public function update(UpdateUserRequest $request, User $user)
@@ -109,8 +111,8 @@ class UsersController extends Controller
         abort_if(Gate::denies('user_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $user->load('roles');
-
-        return view('admin.users.show', compact('user'));
+        $breadcrumb = trans('global.show') . " ".  trans('cruds.user.title_singular') ;
+        return view('admin.users.show', compact('user', 'breadcrumb'));
     }
 
     public function destroy(User $user)

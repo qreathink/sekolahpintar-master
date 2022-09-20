@@ -58,7 +58,9 @@ class RolesController extends Controller
             return $table->make(true);
         }
         $grpTitle = trans('cruds');
-        return view('admin.roles.index', compact('grpTitle'));
+
+        $breadcrumb = trans('cruds.role.title_singular') ." ". trans('global.list');
+        return view('admin.roles.index', compact('grpTitle', 'breadcrumb'));
     }
 
     public function create()
@@ -69,7 +71,8 @@ class RolesController extends Controller
         $permi = Permission::all();
         $grpTitle = trans('cruds');
 
-        return view('admin.roles.create', compact('permissions',  'grpTitle', 'permi'));
+        $breadcrumb = trans('global.create') . " ".  trans('cruds.role.title_singular') ;
+        return view('admin.roles.create', compact('permissions',  'grpTitle', 'permi', 'breadcrumb'));
     }
 
     public function store(StoreRoleRequest $request)
@@ -90,7 +93,8 @@ class RolesController extends Controller
         $role->load('permissions');
         $grpTitle = trans('cruds');
         $mnfound = false;
-        return view('admin.roles.edit', compact('permissions', 'role', 'grpTitle', 'permi', 'mnfound'));
+        $breadcrumb = trans('global.edit') . " ".  trans('cruds.role.title_singular') ;
+        return view('admin.roles.edit', compact('permissions', 'role', 'grpTitle', 'permi', 'mnfound', 'breadcrumb'));
     }
 
     public function update(UpdateRoleRequest $request, Role $role)
@@ -108,8 +112,8 @@ class RolesController extends Controller
         abort_if(Gate::denies('role_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $role->load('permissions');
-
-        return view('admin.roles.show', compact('role'));
+        $breadcrumb = trans('global.show') . " ".  trans('cruds.role.title_singular') ;
+        return view('admin.roles.show', compact('role', 'breadcrumb'));
     }
 
     public function destroy(Role $role)

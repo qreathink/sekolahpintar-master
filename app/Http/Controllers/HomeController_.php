@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Gate;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class HomeController extends Controller
 {
@@ -11,10 +13,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
 
     /**
      * Show the application dashboard.
@@ -23,6 +25,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home1');
+        abort_if(Gate::denies('dashboard_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $breadcrumb = trans('cruds.dashboard.title') ;
+        return view('home' , compact('breadcrumb'));
     }
 }

@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'site_title' => 'Smartadmin',
+    'site_title' => 'Sekolah Pintar',
 ];

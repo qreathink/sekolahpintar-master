@@ -6,7 +6,7 @@
 	  <div id="panel-1" class="panel show" data-panel-sortable data-panel-close data-panel-collapsed>
 		  <div class="panel-hdr">
 				<h2>
-					Data | <span class="fw-300"><i>{{ trans('cruds.permission.title') }}</i></span>
+					Data | <span class="fw-300"><i>{{ $breadcrumb }}</i></span>
 				</h2>
 				@can('permission_create')
 				<div class="panel-toolbar">

@@ -250,7 +250,7 @@ License: You must have a valid license purchased only from wrapbootstrap.com (li
 					buttons: [
 					{
 						extend: 'selectAll',
-						className: 'btn-primary btn-sm mr-1',
+						className: 'btn-outline-primary btn-pills waves-effect waves-themed btn-sm mr-1',
 						text: selectAllButtonTrans,
 						exportOptions: {
 						columns: ':visible'
@@ -263,7 +263,7 @@ License: You must have a valid license purchased only from wrapbootstrap.com (li
 					},
 					{
 						extend: 'selectNone',
-						className: 'btn-outline-danger btn-sm mr-1',
+						className: 'btn-outline-dark btn-pills waves-effect waves-themed  btn-sm mr-1',
 						text: selectNoneButtonTrans,
 						exportOptions: {
 						columns: ':visible'
@@ -282,14 +282,14 @@ License: You must have a valid license purchased only from wrapbootstrap.com (li
 						extend: 'csvHtml5',
 						text: csvButtonTrans,
 						titleAttr: 'Generate CSV',
-						className: 'btn-outline-primary btn-sm mr-1',
+						className: 'btn-outline-dark btn-pills waves-effect waves-themed  btn-sm mr-1',
 						exportOptions: {
 						columns: ':visible'
 						}
 					},
 					{
 						extend: 'excelHtml5',
-						className: 'btn-outline-success btn-sm mr-1',
+						className: 'btn-outline-dark btn-pills waves-effect waves-themed  btn-sm mr-1',
 						text: excelButtonTrans,
 						titleAttr: 'Generate Excel',
 						exportOptions: {
@@ -298,7 +298,7 @@ License: You must have a valid license purchased only from wrapbootstrap.com (li
 					},
 					{
 						extend: 'pdfHtml5',
-						className: 'btn-outline-danger btn-sm mr-1',
+						className: 'btn-outline-dark btn-pills waves-effect waves-themed  btn-sm mr-1',
 						text: pdfButtonTrans,
 						titleAttr: 'Generate PDF',
 						exportOptions: {
@@ -307,7 +307,7 @@ License: You must have a valid license purchased only from wrapbootstrap.com (li
 					},
 					{
 						extend: 'print',
-						className: 'btn-outline-primary btn-sm',
+						className: 'btn-outline-dark btn-pills waves-effect waves-themed  btn-sm',
 						text: printButtonTrans,
 						titleAttr: 'Print Table',
 						exportOptions: {

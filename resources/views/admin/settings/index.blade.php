@@ -10,7 +10,7 @@
 				</h2>
                 @can('setting_create')
 				<div class="panel-toolbar">
-					<a class="btn btn-success btn-xs mr-2" href="{{ route('admin.settings.create') }}" data-toggle="tooltip" title="tambah data" data-original-title="tambah data">
+					<a class="btn btn-outline-success btn-pills waves-effect waves-themed btn-sm mr-2" href="{{ route('admin.settings.create') }}" data-toggle="tooltip" title="tambah data" data-original-title="tambah data">
 						{{ trans('global.add') }} {{ trans('cruds.setting.title_singular') }}
 					</a>
 				</div>
@@ -68,7 +68,7 @@
   let deleteButton = {
     text: deleteButtonTrans,
     url: "{{ route('admin.settings.massDestroy') }}",
-    className: 'btn-danger',
+    className: 'btn-outline-danger btn-pills waves-effect waves-themed btn-sm mr-2',
     action: function (e, dt, node, config) {
       var ids = $.map(dt.rows({ selected: true }).data(), function (entry) {
           return entry.id

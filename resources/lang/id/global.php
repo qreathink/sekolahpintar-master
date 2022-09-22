@@ -7,7 +7,7 @@ return [
     'areYouSure'                     => 'Apakah anda yakin?',
     'clickHereToVerify'              => 'Klik di sini untuk memverifikasi',
     'create'                         => 'Buat',
-    'dashboard'                      => 'Dasbor',
+    'dashboard'                      => 'Dashboard',
     'delete'                         => 'Hapus',
     'cancel'                         => 'Batal',
     'clear'                          => 'Clear',

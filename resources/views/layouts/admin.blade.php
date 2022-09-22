@@ -109,10 +109,10 @@ License: You must have a valid license purchased only from wrapbootstrap.com (li
 					<!-- end page content -->
 						
 					<!-- begin page footer -->
-					@include('partials.footer')
+					{{-- @include('partials.footer') --}}
 					<!-- end page footer -->
 					<!-- begin shortcut -->
-					@include('partials.shortcut')
+					{{-- @include('partials.shortcut') --}}
 					<!-- end shortcut -->
 				</div>
 			</div>

@@ -13,8 +13,8 @@ return [
         'can_create'     => '0',   
     ],  
     'userManagement' => [
-        'title'          => 'User management',
-        'title_singular' => 'User management',
+        'title'          => 'Manajemen Pengguna',
+        'title_singular' => 'Manajemen Pengguna',
         'is_parent'      => '1', 
         'is_hidden'      => '0',
         'can_view'       => '0',
@@ -24,8 +24,8 @@ return [
         'can_create'     => '0',
     ],
     'permission' => [
-        'title'          => 'Permissions',
-        'title_singular' => 'Permission',
+        'title'          => 'Akses',
+        'title_singular' => 'Akses',
         'is_parent'      => '0',
         'is_hidden'      => '0',
         'can_view'       => '1',
@@ -51,8 +51,8 @@ return [
         ],
     ],
     'role' => [
-        'title'          => 'Roles',
-        'title_singular' => 'Role',
+        'title'          => 'Hak Pengguna',
+        'title_singular' => 'Hak Pengguna',
         'is_parent'      => '0',
         'is_hidden'      => '0',
         'can_view'       => '1',
@@ -76,8 +76,8 @@ return [
         ],
     ],
     'user' => [
-        'title'          => 'Users',
-        'title_singular' => 'User',
+        'title'          => 'Pengguna',
+        'title_singular' => 'Pengguna',
         'is_parent'      => '0',
         'is_hidden'      => '0',
         'can_view'       => '1',

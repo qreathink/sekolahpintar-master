@@ -14,7 +14,7 @@
 		<a href="#" class="header-btn btn js-waves-off" data-action="toggle" data-class="nav-function-hidden" title="Hide Navigation">
 			<i class="ni ni-menu"></i>
 		</a>
-		<ul>
+		{{-- <ul>
 			<li>
 				<a href="#" class="btn js-waves-off" data-action="toggle" data-class="nav-function-minify" title="Minify Navigation">
 					<i class="ni ni-minify-nav"></i>
@@ -25,7 +25,7 @@
 					<i class="ni ni-lock-nav"></i>
 				</a>
 			</li>
-		</ul>
+		</ul> --}}
 	</div>
 	<!-- DOC: mobile button appears during mobile width -->
 	<div class="hidden-lg-up">
@@ -43,14 +43,14 @@
 				<i class="fal fa-search"></i>
 			</a>
 		</div>
-		<!-- app settings -->
+		{{-- <!-- app settings -->
 		<div class="hidden-md-down">
 			<a href="#" class="header-icon" data-toggle="modal" title="Penyesuaian" data-target=".js-modal-settings">
 				<i class="fal fa-cog"></i>
 			</a>
-		</div>
+		</div> --}}
 		<!-- app shortcuts -->
-		<div>
+		{{-- <div>
 			<a href="#" class="header-icon" data-toggle="dropdown" title="Fitur Lainnya">
 				<i class="fal fa-cube"></i>
 			</a>
@@ -215,20 +215,20 @@
 					</ul>
 				</div>
 			</div>
-		</div>
+		</div> --}}
 		<!-- app user menu -->
 		<div>
 			<a href="#" data-toggle="dropdown" title="{{ Auth::user()->name }}" class="header-icon d-flex align-items-center justify-content-center ml-2">
-				<img src="{{ asset('img/favicon.png') }}" class="profile-image rounded-circle" alt="{{ Auth::user()->name }}">
+				<img src="{{ asset('img/user.png') }}" class="profile-image rounded-circle" alt="{{ Auth::user()->name }}">
 				<!-- you can also add username next to the avatar with the codes below:
-				<span class="ml-1 mr-1 text-truncate text-truncate-header hidden-xs-down">{{ Auth::user()->name }}</span>
+				<span class="ml-1 mr-1 text-truncate text-truncate-header hidden-xs-down">{ { Auth::user()->name } }</span>
 				<i class="ni ni-chevron-down hidden-xs-down"></i> -->
 			</a>
 			<div class="dropdown-menu dropdown-menu-animated dropdown-lg">
 				<div class="dropdown-header bg-trans-gradient d-flex flex-row py-4 rounded-top">
 					<div class="d-flex flex-row align-items-center mt-1 mb-1 color-white">
 						<span class="mr-2">
-							<img src="{{ asset('img/favicon.png') }}" class="rounded-circle profile-image" alt="Dr. Codex Lantern">
+							<img src="{{ asset('img/user.png') }}" class="rounded-circle profile-image" alt="users">
 						</span>
 						<div class="info-card-text">
 							<div class="fs-lg text-truncate text-truncate-lg">{{ Auth::user()->name }}</div>
@@ -237,12 +237,12 @@
 					</div>
 				</div>
 				<div class="dropdown-divider m-0"></div>
-				<a href="#" class="dropdown-item" data-action="app-reset">
+				{{-- <a href="#" class="dropdown-item" data-action="app-reset">
 					<span data-i18n="drpdwn.reset_layout">Ulang Tataletak</span>
 				</a>
 				<a href="#" class="dropdown-item" data-toggle="modal" data-target=".js-modal-settings">
 					<span data-i18n="drpdwn.settings">Penyesuaian</span>
-				</a>
+				</a> --}}
 				<div class="dropdown-divider m-0"></div>
 				<a href="#" class="dropdown-item" data-action="app-fullscreen">
 					<span data-i18n="drpdwn.fullscreen">Layar Penuh</span>

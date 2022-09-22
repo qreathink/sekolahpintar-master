@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'welcome'               => 'Selamat Datang Smartadmin',
-    'home_subtitle'         => 'Laravel Smart Admin',
+    'welcome'               => 'Selamat datang di Sekolah Pintar',
+    'home_subtitle'         => 'Sekolah Pintar',
     'login_title'           => 'Masuk untuk memulai sesi Anda',
     'help_username'         => 'Username Anda',
     'help_password'         => 'Password Anda',

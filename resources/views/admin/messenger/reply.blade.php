@@ -18,7 +18,11 @@
                             <textarea name="content" class="form-control"></textarea>
                         </div>
                     </div>
-                    <input type="submit" value="{{ trans('global.reply') }}" class="btn btn-success" />
+                    
+                    <button class="btn btn-outline-success btn-pills btn-sm mt-4" type="submit">
+                        {{ trans('global.reply') }}
+                    </button>
+                    {{-- <input type="submit" value="{{ trans('global.reply') }}" class="btn btn-success" /> --}}
                 </div>
             </div>
         </form>

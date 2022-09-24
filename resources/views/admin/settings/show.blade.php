@@ -6,10 +6,10 @@
 		<div id="panel-1" class="panel panel-lock show" data-panel-sortable data-panel-close data-panel-collapsed>
 			<div class="panel-hdr">
 				<h2>
-					{{ trans('cruds.setting.title') }} | <span class="fw-300"><i>Detail</i></span>
+					{{ trans('cruds.setting.title') }} | <span class="fw-300"><i>Lihat</i></span>
 				</h2>
 				<div class="panel-toolbar">
-					<a class="btn btn-xs btn-primary mr-2" href="{{ route('admin.settings.index') }}">
+					<a class="btn btn-outline-primary btn-pills waves-effect waves-themed btn-sm mr-2" href="{{ route('admin.settings.index') }}">
 						{{ trans('global.back_to_list') }}
 					</a>
 				</div>

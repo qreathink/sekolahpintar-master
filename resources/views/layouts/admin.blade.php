@@ -59,6 +59,13 @@ License: You must have a valid license purchased only from wrapbootstrap.com (li
 		<meta name="csrf-token" content="{{ csrf_token() }}">
 		@yield('styles')
     </head>
+
+	<style>
+		.dataTables_wrapper .dataTables_filter label {
+    			display: -webkit-inline-box !important;
+		}
+
+	</style>
 	<!--
 		ditambahkan class fixed footer "footer-function-fixed"
 		pada body class sebagai default layout antisipasi

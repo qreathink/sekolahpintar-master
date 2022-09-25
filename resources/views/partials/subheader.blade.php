@@ -1,8 +1,6 @@
 <div class="subheader">
 	<h1 class="subheader-title">
-		<i class='subheader-icon fal fa-chart-area'></i> {{ $breadcrumb ?? '' }}
-		<small>
-		</small>
+		 {{ $breadcrumb ?? '' }}
 	</h1>
 	<div class="subheader-block d-lg-flex align-items-center">
 		<div class="d-inline-flex flex-column justify-content-center mr-3 text-right" data-toggle="tooltip" title data-original-title="waktu terakhir data diperbaharusi">

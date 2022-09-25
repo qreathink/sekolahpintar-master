@@ -66,7 +66,7 @@
 					</div>
 					<div class="row no-gutters">
 						<div class="col-lg-6 pr-lg-1 my-2">
-							<button type="submit" class="btn btn-danger btn-block btn-lg">
+							<button type="submit" class="btn btn-outline-primary btn-block btn-lg">
 								{{ trans('global.login') }}
 							</button>
 						</div>

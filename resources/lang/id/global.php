@@ -137,7 +137,7 @@ return [
     'change_notifications_field_2_label'   => 'Ketika memasukkan pada CRUD',
     'my_profile'                           => 'Profil Saya',
     'my_team'                              => 'Tim saya',
-    'change_password'                      => 'Profil',
+    'change_password'                      => 'Ganti Password',
     'delete_account'                       => 'Hapus Akun',
     'delete_account_warning'               => 'Masukan alamat email anda untuk mengkonfirmasi hapus akun.\nAksi ini tidak akan dapat dibatalkan.',
     'two_factor'                           => [
@@ -322,5 +322,5 @@ return [
     'leave'                          => 'Keluar',
     'calendar'                       => 'Kalender',
     'messenger'                      => 'Pesan',
-    'login_username'                 => 'User ID',
+    'login_username'                 => 'ID Pengguna',
 ];

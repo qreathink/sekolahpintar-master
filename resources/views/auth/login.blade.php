@@ -78,7 +78,13 @@
 							@endif
 						</div>
 					</div>
-					
+					@if (Route::has('register'))
+					<div class="text-center mt-4">
+						<label>
+							Sekolah anda belum terdaftar ? <a href="{{ route('register') }}"> Daftarkan disini </a>
+						</label>	
+					</div>
+					@endif
 				</form>
 			</div>
 		</div>

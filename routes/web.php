@@ -1,4 +1,5 @@
 <?php
+
 Route::redirect('/', '/login');
 Route::get('/home', function () {
     if (session('status')) {
@@ -8,7 +9,10 @@ Route::get('/home', function () {
     return redirect()->route('admin.home');
 });
 
+Route::post('registerschool', 'NewschoolController@register')->name('registersch');
+
 Auth::routes(['register' => true]); // menghidupkan registration
+
 
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {

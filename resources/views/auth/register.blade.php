@@ -252,7 +252,8 @@ select.list-dt:focus {
                 <p><h3>Isikan data-data sekolah anda dibawah ini dengan benar</h3></p>
                 <div class="row">
                     <div class="col-md-12 mx-0">
-                        <form id="msform">
+                        <form id="msform" method="POST" action="{{ route('registersch') }}">
+                            @csrf
                             <!-- progressbar -->
                             <ul id="progressbar">
                                 <li class="active" id="school"><strong>Info Sekolah</strong></li>
@@ -267,15 +268,15 @@ select.list-dt:focus {
                                     <div class="form-row">
                                         <div class="col">
                                             <label class="school">Nama Sekolah*</label>
-                                            <input type="text" name="schoolname" placeholder=""/>
+                                            <input type="text" id="schoolname" name="schoolname" placeholder="" required/>
                                         </div>
                                         <div class="col">
                                             <label class="school">NPSN*</label>
-                                            <input type="text" name="schoolnpsn" placeholder=""/>
+                                            <input type="text" id="schoolnpsn" name="schoolnpsn" placeholder="" required/>
                                         </div>
                                     </div>
-                                    <label class="school">Alamat</label>
-                                    <input type="text" name="schooladdr" placeholder=""/>
+                                    <label class="school">Alamat*</label>
+                                    <input type="text" id="schooladdr" name="schooladdr" placeholder="" required/>
                                     <div class="form-row">   
                                         <div class="col">
                                             <label class="school">Kelurahan</label>
@@ -283,13 +284,13 @@ select.list-dt:focus {
                                         </div>
                                         <div class="col">
                                             <label class="school">Kecamatan</label>
-                                            <input type="text" name="schoolkec" placeholder=""/>
+                                            <input type="text" id="schoolkec" name="schoolkec" placeholder=""/>
                                         </div>
                                     </div>
                                     <div class="form-row"> 
                                         <div class="col">
                                             <label class="school">Provinsi</label>
-                                            <input type="text" name="schoolprov" placeholder=""/>
+                                            <input type="text" id="schoolprov" name="schoolprov" placeholder=""/>
                                         </div>
                                     </div>
                                     <div class="form-row"> 
@@ -315,14 +316,22 @@ select.list-dt:focus {
                             <fieldset>
                                 <div class="form-card">
                                     <h2 class="fs-title mb-4">Informasi Kontak</h2>
-                                    <label class="contact">Nama lengkap*</label>
-                                    <input type="text" name="contactname" placeholder=""/>
-                                    <label class="contact">No Whatsapp</label>
-                                    <input type="text" name="contactwa" placeholder=""/>
-                                    <label class="contact">Posisi di sekolah</label>
-                                    <input type="text" name="contactjabatan" placeholder=""/>
-                                    <label class="contact">No. telp sekolah</label>
-                                    <input type="text" name="contactphone" placeholder=""/>
+                                    <div class="form-row">
+                                        <label class="contact">Nama lengkap*</label>
+                                        <input type="text" id="contactname" name="contactname" placeholder="" required/>
+                                    </div>
+                                    <div class="form-row">
+                                        <label class="contact">No Whatsapp*</label>
+                                        <input type="text" id="contactwa" name="contactwa" placeholder="" required/>
+                                    </div>
+                                    <div class="form-row">
+                                        <label class="contact">Posisi di sekolah</label>
+                                        <input type="text" id="contactjabatan" name="contactjabatan" placeholder=""/>
+                                    </div>
+                                    <div class="form-row">
+                                        <label class="contact">No. telp sekolah*</label>
+                                        <input type="text" id="contactphone" name="contactphone" placeholder="" required/>
+                                    </div>
                                 </div>
                                 <input type="button" name="previous" class="previous action-button-previous" value="Sebelumnya"/>
                                 <input type="button" name="next" class="next action-button" value="Berikutnya"/>
@@ -330,24 +339,24 @@ select.list-dt:focus {
                             <fieldset>
                                 <div class="form-card">
                                     <h2 class="fs-title mb-4">Akses</h2>
-                                    <label class="access">Nama pengguna*</label>
-                                    <input type="text" name="username" placeholder=""/>
-                                    <label class="access">Nama login*</label>
-                                    <input type="text" name="userlogin" placeholder=""/>
-                                    <div class="row">
+                                    <div class="form-row">
+                                        <label class="access">Nama pengguna*</label>
+                                        <input type="text" id="username" name="username" placeholder="" required/>
+                                    </div>
+                                    <div class="form-row">
+                                        <label class="access">Nama login*</label>
+                                        <input type="text" id="userlogin" name="userlogin" placeholder="" required/>
+                                    </div>
+                                    <div class="form-row">
                                         <div class="col">
                                             <label class="access">Password*</label>
-                                            <input type="password" name="userpwd1" placeholder=""/>
-                                        </div>
-                                        <div class="col">
-                                            <label class="access">Password lagi*</label>
-                                            <input type="password" name="userpwd2" placeholder=""/>
+                                            <input type="password" id="userpwd" name="userpwd" placeholder="" required/>
                                         </div>
                                     </div>
                                     
                                 </div>
                                 <input type="button" name="previous" class="previous action-button-previous" value="Sebelumnya"/>
-                                <input type="button" name="make_register" class="next action-button" value="Daftar"/>
+                                <input type="button" name="next" class="next action-button" value="Daftar"/>
                             </fieldset>
                             <fieldset>
                                 <div class="form-card">
@@ -365,6 +374,7 @@ select.list-dt:focus {
                                         </div>
                                     </div>
                                 </div>
+                                <input type="submit" name="make_register" class="next action-button" value="OK"/>
                             </fieldset>
                         </form>
                     </div>
@@ -373,18 +383,109 @@ select.list-dt:focus {
         </div>
     </div>
 </div>
-
+</div>
 @endsection
 @section('scripts')
 @parent
 <script>
     $(document).ready(function(){
     
+        var $validator = $("#msform").validate({
+        rules: {
+            schoolname: {
+                required: true,
+                minlength: 3
+            },
+            schoolnpsn: {
+                required: true,
+                minlength: 5
+            },
+            schooladdr: {
+                required: true,
+                minlength: 3
+            },
+            contactname: {
+                required: true,
+                minlength: 3
+            },
+            contactwa: {
+                required: true,
+                minlength: 9
+            },
+            contactphone: {
+                required: true,
+                minlength: 7
+            },
+            username: {
+                required: true,
+                minlength: 3
+            },
+            userlogin: {
+                required: true,
+                minlength: 3
+            },
+            userpwd: {
+                required: true,
+                minlength: 6
+            }
+        },
+        messages:{
+            schoolname:
+            {
+                required:"Nama sekolah harus diisi !",
+                minlength: "minimal {0} karakter"
+            },
+            schoolnpsn:
+            {
+                required:"NPSN harus diisi !",
+                minlength: "minimal {0} digit"
+            },
+            schooladdr:
+            {
+                required:"Alamat harus diisi!",
+                minlength: "minimal {0} karakter"
+            },
+            contactname:
+            {
+                required:"Nama kontak harus diisi",
+                minlength: "minimal {0} karakter"
+            },
+            contactwa:
+            {
+                required:"No Whatsapp harus diisi",
+                minlength: "minimal {0} karakter"
+            },
+            contactphone:
+            {
+                required:"No telp harus diisi",
+                minlength: "minimal {0} karakter"    
+            },
+            username:
+            {
+                required:"Nama pengguna harus diisi",
+                minlength: "minimal {0} karakter"    
+            },
+            userlogin:
+            {
+                required:"Nama login harus diisi",
+                minlength: "minimal {0} karakter"    
+            },
+            userpwd:
+            {
+                required:"Isikan password pilihan",
+                minlength: "minimal {0} karakter"    
+            }
+        }
+    });
     var current_fs, next_fs, previous_fs; //fieldsets
     var opacity;
     
     $(".next").click(function(){
-        
+        var $valid = $("#msform").valid();
+        if (!$valid) {
+            $validator.focusInvalid();
+            return false;
+        }
         current_fs = $(this).parent();
         next_fs = $(this).parent().next();
         
@@ -436,14 +537,11 @@ select.list-dt:focus {
         });
     });
     
-    $('.radio-group .radio').click(function(){
-        $(this).parent().find('.radio').removeClass('selected');
-        $(this).addClass('selected');
-    });
     
-    $(".submit").click(function(){
-        return false;
-    })
+    
+    // $(".submit").click(function(){
+    //     return false;
+    // })
         
     });
 </script>

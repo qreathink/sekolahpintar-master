@@ -18,7 +18,11 @@ class SekolahController extends Controller
      */
     public function index()
     {
-        //
+        abort_if(Gate::denies('sekolah_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $sekolah = Sekolah::with(['created_by'])->get();
+
+        return view('admin.sekolah.index', compact('sekolah'));
     }
 
     /**
